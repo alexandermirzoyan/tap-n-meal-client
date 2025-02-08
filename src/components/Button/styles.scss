@@ -1,0 +1,17 @@
+.btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 34px;
+  color: var(--white);
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 10px var(--main-color));
+
+  &--prefix {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+}
