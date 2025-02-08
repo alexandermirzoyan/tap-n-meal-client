@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 import { Typography } from '@/components/Typography';
 import { IButtonProps } from './types';
-import CartIcon from '../../../public/icons/cart.svg';
 
 import './styles.scss';
 
@@ -11,16 +10,26 @@ export const Button = ({
   prefix,
   isLoading,
   disabled,
+  ...rest
 }: IButtonProps) => {
-  console.log('label :: ', label);
-  console.log('prefix :: ', prefix);
-  console.log('isLoading :: ', isLoading);
-  console.log('disabled :: ', disabled);
-  console.log('CartIcon', CartIcon);
+  const isDisabled = disabled || isLoading;
+  const className = `${isDisabled ? 'disabled' : ''}`;
+
+  const renderPrefixIcon = () => {
+    if (isLoading) {
+      return <div className='btn--loader' />;
+    }
+
+    if (prefix) {
+      return <Image src={prefix} alt='Button prefix' className='btn--prefix' />;
+    }
+
+    return null;
+  };
 
   return (
-    <button disabled={disabled || isLoading} className='btn'>
-      <Image src={CartIcon} alt='Button prefix' className='btn--prefix' />
+    <button disabled={isDisabled} className={`btn ${className}`} {...rest}>
+      {renderPrefixIcon()}
       <Typography weight='medium' size='sm'>{label}</Typography>
     </button>
   );

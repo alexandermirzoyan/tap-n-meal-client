@@ -1,4 +1,6 @@
-export interface IButtonProps {
+import React from 'react';
+
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   prefix?: string;
   isLoading?: boolean;
