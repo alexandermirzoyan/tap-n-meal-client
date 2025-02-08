@@ -1,0 +1,32 @@
+$fontWeightByFamilyName: (
+  'light': 'Poppins-Light',
+  'regular': 'Poppins-Regular',
+  'medium': 'Poppins-Medium',
+  'semibold': 'Poppins-SemiBold',
+  'bold': 'Poppins-Bold',
+);
+
+$fontSizesByNames: (
+  'xxl': ( size: 32px, line-height: 48px ),
+  'xl': ( size: 24px, line-height: 36px ),
+  'lg': ( size: 20px, line-height: 30px ),
+  'md': ( size: 18px, line-height: 27px ),
+  'sm': ( size: 16px, line-height: 24px ),
+  'xs': ( size: 14px, line-height: 21px ),
+  'xxs': ( size: 12px, line-height: 18px ),
+);
+
+// Loop to generate font-weight's
+@each $weight, $font-family in $fontWeightByFamilyName {
+  .typography--#{$weight} {
+    font-family: $font-family;
+  }
+}
+
+// Loop to generate font-size & line-height
+@each $size, $values in $fontSizesByNames {
+  .typography--#{$size} {
+    font-size: map-get($values, size);
+    line-height: map-get($values, line-height);
+  }
+}
