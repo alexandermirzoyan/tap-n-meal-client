@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { Typography } from '@/components/Typography';
 import { IButtonProps } from './types';
 
@@ -21,7 +19,7 @@ export const Button = ({
     }
 
     if (prefix) {
-      return <Image src={prefix} alt='Button prefix' className='btn--prefix' />;
+      return <div className='btn--prefix'>{prefix}</div>;
     }
 
     return null;
