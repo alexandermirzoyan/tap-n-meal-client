@@ -13,9 +13,9 @@ const Home = () => (
     <Typography size='xs'>Hello World!</Typography>
     <Typography size='xxs'>Hello World!</Typography>
 
-    <Button label='Add to Card' prefix={CartIcon} />
-    <Button label='Add to Card' isLoading prefix={CartIcon} />
-    <Button label='Add to Card' disabled prefix={CartIcon} />
+    <Button label='Add to Card' prefix={<CartIcon />} />
+    <Button label='Add to Card' isLoading prefix={<CartIcon />} />
+    <Button label='Add to Card' disabled prefix={<CartIcon />} />
   </>
 );
 
