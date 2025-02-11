@@ -1,0 +1,29 @@
+.quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 10px;
+  background-color: var(--background);
+  border-radius: 12px;
+
+  p {
+    width: 20px;
+    text-align: center;
+  }
+
+  button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+
+    &[disabled] {
+      opacity: 0.6;
+    }
+  }
+}
