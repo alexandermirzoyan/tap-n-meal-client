@@ -1,0 +1,41 @@
+.radio {
+  &--options-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 12px;
+  }
+
+  &--option-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background);
+    border: 1px solid var(--stroke-1);
+    border-radius: 50%;
+    margin-right: 12px;
+
+    &.selected {
+      border-color: var(--main-color);
+      background-color: var(--main-color);
+    }
+  }
+
+  &--option {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--stroke-2);
+    cursor: pointer;
+    color: var(--text-secondary);
+    background-color: #FFFFFF;
+    padding: 16px;
+    border-radius: 12px;
+
+    &.selected {
+      color: var(--text-main);
+      border-color: var(--main-color);
+    }
+  }
+}
