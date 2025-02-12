@@ -2,6 +2,7 @@ import { Button } from '@/components/Button';
 import { Typography } from '@/components/Typography';
 import { QuantitySelector } from '@/components/QuantitySelector';
 import { ProductCard } from '@/components/ProductCard';
+import { BackButton } from '@/components/BackButton';
 
 import CartIcon from '../../public/icons/cart.svg';
 
@@ -28,6 +29,8 @@ const Home = () => (
       <ProductCard title='Veggie tomato mix' available={1} price={30} isVeggie />
       <ProductCard title='Turur' available={30} price={100} />
     </div>
+
+    <BackButton to='/' />
   </>
 );
 
