@@ -1,8 +1,11 @@
+'use client';
+
 import { Button } from '@/components/Button';
 import { Typography } from '@/components/Typography';
 import { QuantitySelector } from '@/components/QuantitySelector';
 import { ProductCard } from '@/components/ProductCard';
 import { BackButton } from '@/components/BackButton';
+import { Radio } from '@/components/Radio';
 
 import CartIcon from '../../public/icons/cart.svg';
 
@@ -31,6 +34,17 @@ const Home = () => (
     </div>
 
     <BackButton to='/' />
+
+    <Radio
+      label='Payment Method'
+      onChange={(value: string) => console.log(value)}
+      options={[
+        { id: '1', name: 'Credit Card' },
+        { id: '2', name: 'Cash' },
+      ]}
+    />
+
+    <div style={{ marginBottom: 200 }} />
   </>
 );
 
