@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import { Typography } from '@/components/Typography';
 import { QuantitySelector } from '@/components/QuantitySelector';
+import { ProductCard } from '@/components/ProductCard';
 
 import CartIcon from '../../public/icons/cart.svg';
 
@@ -20,6 +21,12 @@ const Home = () => (
 
     <div style={{ display: 'inline-block', backgroundColor: 'white', padding: 20 }}>
       <QuantitySelector max={10} />
+    </div>
+
+    <div style={{ display: 'inline-block', backgroundColor: '#2C2C2C', padding: 20 }}>
+      <ProductCard title='Veggie tomato mix' available={1} price={30} />
+      <ProductCard title='Veggie tomato mix' available={1} price={30} isVeggie />
+      <ProductCard title='Turur' available={30} price={100} />
     </div>
   </>
 );
