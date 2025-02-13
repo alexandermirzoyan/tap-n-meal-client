@@ -29,7 +29,7 @@ export const Button = ({
   return (
     <button disabled={isDisabled} className={`btn ${className}`} {...rest}>
       {renderPrefixIcon()}
-      <Typography weight='medium' size='sm'>{label}</Typography>
+      <Typography weight='semibold' size='sm'>{label}</Typography>
     </button>
   );
 };
