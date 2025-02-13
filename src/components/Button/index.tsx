@@ -8,10 +8,11 @@ export const Button = ({
   prefix,
   isLoading,
   disabled,
+  className: customClassName,
   ...rest
 }: IButtonProps) => {
   const isDisabled = disabled || isLoading;
-  const className = `${isDisabled ? 'disabled' : ''}`;
+  const className = `${isDisabled ? 'disabled' : ''} ${customClassName}`;
 
   const renderPrefixIcon = () => {
     if (isLoading) {
