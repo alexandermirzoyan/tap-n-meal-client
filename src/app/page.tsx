@@ -9,8 +9,10 @@ import { ProductCard } from '@/components/ProductCard';
 import { BackButton } from '@/components/BackButton';
 import { Radio } from '@/components/Radio';
 import { Modal } from '@/components/Modal';
+import { Input } from '@/components/Input';
 
 import CartIcon from '../../public/icons/cart.svg';
+import MagnifierIcon from '../../public/icons/magnifier.svg';
 
 const Home = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -58,6 +60,12 @@ const Home = () => {
         title='Oops...'
         info='Something went wrong. Try again'
       />
+
+      <div style={{ marginBottom: 50 }} />
+
+      <Input placeholder='Search' />
+      <div style={{ marginBottom: 50 }} />
+      <Input placeholder='Search' prefix={<MagnifierIcon />} />
 
       <div style={{ marginBottom: 200 }} />
     </>
