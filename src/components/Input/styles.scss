@@ -1,0 +1,39 @@
+@import "rc-input/assets/index.css";
+
+.rc-input-affix-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--stroke-2) !important;
+  border-radius: 12px;
+}
+
+.rc-input-prefix {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: var(--text-secondary);
+}
+
+.rc-input {
+  width: 100%;
+  color: var(--text-main);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+
+  &.without-prefix {
+    padding: 16px !important;
+    border: 1px solid var(--stroke-2) !important;
+    border-radius: 12px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
