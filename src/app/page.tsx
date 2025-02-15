@@ -10,6 +10,7 @@ import { BackButton } from '@/components/BackButton';
 import { Radio } from '@/components/Radio';
 import { Modal } from '@/components/Modal';
 import { Input } from '@/components/Input';
+import { TextArea } from '@/components/TextArea';
 
 import CartIcon from '../../public/icons/cart.svg';
 import MagnifierIcon from '../../public/icons/magnifier.svg';
@@ -66,6 +67,11 @@ const Home = () => {
       <Input placeholder='Search' />
       <div style={{ marginBottom: 50 }} />
       <Input placeholder='Search' prefix={<MagnifierIcon />} />
+      <div style={{ marginBottom: 50 }} />
+
+      <div style={{ padding: 50, backgroundColor: '#FFFFFF' }}>
+        <TextArea label='Write a comment' placeholder='Your comment to this order' />
+      </div>
 
       <div style={{ marginBottom: 200 }} />
     </>
