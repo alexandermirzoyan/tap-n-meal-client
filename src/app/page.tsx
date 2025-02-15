@@ -11,6 +11,7 @@ import { Radio } from '@/components/Radio';
 import { Modal } from '@/components/Modal';
 import { Input } from '@/components/Input';
 import { TextArea } from '@/components/TextArea';
+import { CartButton } from '@/components/CartButton';
 
 import CartIcon from '../../public/icons/cart.svg';
 import MagnifierIcon from '../../public/icons/magnifier.svg';
@@ -44,6 +45,12 @@ const Home = () => {
       </div>
 
       <BackButton to='/' />
+      <br />
+      <CartButton total={0} />
+      <br />
+      <CartButton total={2} />
+      <br />
+      <CartButton total={10} />
 
       <Radio
         label='Payment Method'
