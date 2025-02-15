@@ -1,0 +1,26 @@
+@import "rc-textarea/assets/index.css";
+
+.rc-textarea {
+  border: 1px solid var(--stroke-1);
+  border-radius: 12px;
+  padding: 12px;
+  background-color: var(--background);
+  font-family: Poppins-Light;
+  height: 100px;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.textarea {
+  &--container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--label {
+    margin-bottom: 8px;
+  }
+}
