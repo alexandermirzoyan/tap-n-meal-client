@@ -1,0 +1,30 @@
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: #FFFFFF;
+  color: var(--text-secondary);
+  border-radius: 12px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--total-container {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--main-color);
+    color: #FFFFFF;
+    border-radius: 50%;
+  }
+}
