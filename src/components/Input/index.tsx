@@ -1,3 +1,5 @@
+'use client';
+
 import RCInput from 'rc-input';
 
 import { IInputProps } from './types';
