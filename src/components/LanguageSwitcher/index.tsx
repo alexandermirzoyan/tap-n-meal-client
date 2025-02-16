@@ -13,14 +13,14 @@ import BackIcon from '../../../public/icons/back.svg';
 import './styles.scss';
 
 const LANGUAGES = [
-  { id: 'am', name: 'Am', icon: <AMFlagIcon /> },
+  { id: 'hy', name: 'Am', icon: <AMFlagIcon /> },
   { id: 'en', name: 'En', icon: <USFlagIcon /> },
   { id: 'ru', name: 'Ru', icon: <RUFlagIcon /> },
 ];
 
 export const LanguageSwitcher = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [selectedLanguageId, setSelectedLanguageId] = useState('am');
+  const [selectedLanguageId, setSelectedLanguageId] = useState('hy');
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownIconClassName = isDropdownOpen ? 'open' : 'close';
   const selectedLanguage = LANGUAGES.find((lang) => lang.id === selectedLanguageId);
