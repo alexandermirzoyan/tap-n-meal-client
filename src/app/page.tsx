@@ -12,6 +12,7 @@ import { Modal } from '@/components/Modal';
 import { Input } from '@/components/Input';
 import { TextArea } from '@/components/TextArea';
 import { CartButton } from '@/components/CartButton';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 import CartIcon from '../../public/icons/cart.svg';
 import MagnifierIcon from '../../public/icons/magnifier.svg';
@@ -51,6 +52,8 @@ const Home = () => {
       <CartButton total={2} />
       <br />
       <CartButton total={10} />
+
+      <LanguageSwitcher />
 
       <Radio
         label='Payment Method'
