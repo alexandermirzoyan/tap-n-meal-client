@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 
 import { Typography } from '@/components/Typography';
+import { APP_LANGUAGE } from '@/constants/appLanguage';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import AMFlagIcon from '../../../public/icons/flags/am.svg';
@@ -20,7 +21,7 @@ const LANGUAGES = [
 
 export const LanguageSwitcher = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [selectedLanguageId, setSelectedLanguageId] = useState('hy');
+  const [selectedLanguageId, setSelectedLanguageId] = useState(APP_LANGUAGE);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownIconClassName = isDropdownOpen ? 'open' : 'close';
   const selectedLanguage = LANGUAGES.find((lang) => lang.id === selectedLanguageId);
