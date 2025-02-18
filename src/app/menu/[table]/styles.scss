@@ -1,0 +1,14 @@
+.header {
+  &--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &--actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

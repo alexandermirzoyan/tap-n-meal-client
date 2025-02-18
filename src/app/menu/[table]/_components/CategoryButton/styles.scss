@@ -1,0 +1,17 @@
+.category-btn {
+  padding: 12px 38px;
+  border: 1px solid var(--stroke-2);
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  color: var(--text-secondary);
+
+  .typography {
+    white-space: nowrap;
+  }
+
+  &.selected {
+    color: #FFFFFF;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+  }
+}
