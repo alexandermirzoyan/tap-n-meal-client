@@ -9,6 +9,7 @@ export const Products = ({ data }: IProductsProps) => (
   <div className='products--container'>
     {data.map((product) => (
       <ProductCard
+        id={product.id}
         key={product.id}
         title={product.name}
         available={product.quantity}
