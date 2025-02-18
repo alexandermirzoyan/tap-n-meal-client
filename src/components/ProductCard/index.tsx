@@ -3,7 +3,6 @@ import { Typography } from '@/components/Typography';
 
 import { IProductCardProps } from './types';
 
-import ProductMockImage from '../../../public/images/product-mock-1.png';
 import VeggieIcon from '../../../public/icons/veggie.svg';
 import CartIcon from '../../../public/icons/cart.svg';
 
@@ -12,6 +11,7 @@ import './styles.scss';
 export const ProductCard = ({
   title,
   available,
+  imageSrc,
   price,
   isVeggie,
 }: IProductCardProps) => (
@@ -23,7 +23,7 @@ export const ProductCard = ({
         </div>
       ) : null
     }
-    <Image src={ProductMockImage} className='product-card--image' alt='Product' />
+    <Image src={imageSrc} width={128} height={128} className='product-card--image' alt='Product' />
     <div className='product-card--info'>
       <Typography size='xs' weight='semibold'>{title}</Typography>
       <Typography size='xxs' className='product-card--available'>
