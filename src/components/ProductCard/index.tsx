@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { Typography } from '@/components/Typography';
 
 import { IProductCardProps } from './types';
@@ -9,13 +11,14 @@ import CartIcon from '../../../public/icons/cart.svg';
 import './styles.scss';
 
 export const ProductCard = ({
+  id,
   title,
   available,
   imageSrc,
   price,
   isVeggie,
 }: IProductCardProps) => (
-  <div className='product-card'>
+  <Link href={`/product/${id}`} className='product-card'>
     {
       isVeggie ? (
         <div className='product-card--type'>
@@ -38,5 +41,5 @@ export const ProductCard = ({
         <CartIcon />
       </button>
     </div>
-  </div>
+  </Link>
 );
