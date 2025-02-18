@@ -3,7 +3,9 @@ type TProduct = {
   name: string;
   price: number;
   quantity: number;
-  image: string;
+  image: {
+    path: string;
+  };
 };
 
 export interface IProductsProps {
