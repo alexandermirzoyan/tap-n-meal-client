@@ -27,14 +27,12 @@ export const ProductCard = ({
     <div className='product-card--info'>
       <Typography size='xs' weight='semibold'>{title}</Typography>
       <Typography size='xxs' className='product-card--available'>
-        Available:
-        {available}
+        {`Available: ${available}`}
       </Typography>
     </div>
     <div className='product-card--price-info'>
       <Typography size='xs' weight='semibold' className='product-card--price'>
-        $
-        {price}
+        {`${price} ֏`}
       </Typography>
       <button className='product-card--cart-btn'>
         <CartIcon />
