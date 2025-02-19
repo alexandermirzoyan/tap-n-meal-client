@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => (
   <html lang='en'>
-    <body className='page-layout'>
+    <body>
       {children}
     </body>
   </html>
