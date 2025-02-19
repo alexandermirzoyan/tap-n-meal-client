@@ -1,0 +1,45 @@
+.product {
+  &--image-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 36px 0;
+
+    img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 24px;
+      left: 20px;
+      z-index: 4;
+    }
+  }
+
+  &--image-blur {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    //filter: blur(6px);
+    //-webkit-filter: blur(6px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, .6);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+  }
+}
