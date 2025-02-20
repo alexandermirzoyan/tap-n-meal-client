@@ -1,3 +1,5 @@
+'use client';
+
 import RCTextArea from 'rc-textarea';
 
 import { Typography } from '@/components/Typography';
