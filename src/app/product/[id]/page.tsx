@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { request } from '@/service/request';
+
 import { Typography } from '@/components/Typography';
 import { BackButton } from '@/components/BackButton';
 import { TextArea } from '@/components/TextArea';
@@ -17,15 +19,16 @@ interface IPageProps {
 }
 
 const ProductPage = async ({ params }: IPageProps) => {
+  const tableId = 12;
   const id = (await params).id;
-  const imageSrc = '/uploads/product-mock-1.png';
-  console.log(`Product #${id}`);
+  const product = await request({ url: `/products/${id}` });
+  const imageSrc = product.image.path;
 
   return (
     <div className='product--page-container'>
       <div className='product--image-container'>
         <div className='product--image-blur' style={{ backgroundImage: `url(${getImageSrc(imageSrc)})` }} />
-        <BackButton to='/menu/12' />
+        <BackButton to={`/menu/${tableId}`} />
         <Image
           width={220}
           height={220}
@@ -34,18 +37,16 @@ const ProductPage = async ({ params }: IPageProps) => {
         />
       </div>
       <div className='product--info-container'>
-        <Typography size='md' weight='semibold'>Veggie tomato mix</Typography>
-        <Typography size='xs' className='product--available-count'>Available: 1</Typography>
-        <Typography size='xl' weight='semibold' className='product--price'>30 ֏</Typography>
+        <Typography size='md' weight='semibold'>{product.name}</Typography>
+        <Typography size='xs' className='product--available-count'>{`Available: ${product.quantity}`}</Typography>
+        <Typography size='xl' weight='semibold' className='product--price'>{`${product.price} ֏`}</Typography>
         <Typography size='xs' weight='medium'>Description</Typography>
-        <Typography size='xs' className='product--description'>
-          00 grams Mozzarella cheese (use as needed) 1½ cups Mix vegetables sliced or cubed (capsicum, onions, olives.
-        </Typography>
+        <Typography size='xs' className='product--description'>{product.description}</Typography>
 
         <TextArea label='Write a comment' placeholder='Your comment to this order' />
 
         <div className='product--actions-container'>
-          <QuantitySelector max={10} />
+          <QuantitySelector max={product.quantity} />
           <Button label='Add to Card' prefix={<CartIcon />} />
         </div>
       </div>
