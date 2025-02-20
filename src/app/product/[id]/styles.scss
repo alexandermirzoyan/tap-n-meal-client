@@ -1,9 +1,15 @@
+$backgroundOffset: 24px;
+
 .product {
+  &--page-container {
+    position: relative;
+  }
+
   &--image-container {
     display: flex;
     justify-content: center;
     position: relative;
-    padding: 36px 0;
+    padding: 36px 0 calc(36px + $backgroundOffset) 0;
 
     img {
       width: 220px;
@@ -41,5 +47,46 @@
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
     }
+  }
+
+  &--info-container {
+    position: relative;
+    bottom: $backgroundOffset;
+    padding: 14px 24px 24px 24px;
+    background-color: #FFFFFF;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  &--available-count {
+    color: var(--text-secondary);
+    margin: 6px 0;
+  }
+
+  &--price {
+    color: var(--main-color);
+    margin-bottom: 20px;
+  }
+
+  &--description {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+  }
+
+  &--actions-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+
+  &--empty-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $backgroundOffset;
+    background-color: #FFFFFF;
   }
 }
