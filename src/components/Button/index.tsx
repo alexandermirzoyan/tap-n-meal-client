@@ -12,7 +12,7 @@ export const Button = ({
   ...rest
 }: IButtonProps) => {
   const isDisabled = disabled || isLoading;
-  const className = `${isDisabled ? 'disabled' : ''} ${customClassName}`;
+  const className = `${isDisabled ? 'disabled' : ''} ${customClassName || ''}`;
 
   const renderPrefixIcon = () => {
     if (isLoading) {
