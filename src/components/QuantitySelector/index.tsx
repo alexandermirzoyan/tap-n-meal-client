@@ -30,7 +30,7 @@ export const QuantitySelector = ({ max }: IQuantitySelectorProps) => {
       <button onClick={() => onChangeClick('minus')} disabled={count === min}>
         <MinusIcon />
       </button>
-      <Typography>{count}</Typography>
+      <Typography size='xs'>{count}</Typography>
       <button onClick={() => onChangeClick('plus')} disabled={count === max}>
         <PlusIcon />
       </button>
