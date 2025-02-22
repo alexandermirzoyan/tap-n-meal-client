@@ -1,6 +1,4 @@
-import { BackButton } from '@/components/BackButton';
-import { CartButton } from '@/components/CartButton';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/Button';
 import { Product } from './_components/Product';
@@ -12,13 +10,7 @@ const CartPage = () => {
 
   return (
     <>
-      <div className='cart--header-container'>
-        <BackButton to={`/menu/${tableId}`} />
-        <div className='cart--header-right-side'>
-          <CartButton total={0} />
-          <LanguageSwitcher />
-        </div>
-      </div>
+      <HeaderAction tableId={tableId} />
       <Typography size='xl' weight='semibold' className='cart--title'>My Cart</Typography>
       <div className='cart--items'>
         <Product />
