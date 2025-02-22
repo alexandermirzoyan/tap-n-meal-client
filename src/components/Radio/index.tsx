@@ -8,7 +8,12 @@ import CheckMarkIcon from '../../../public/icons/checkmark.svg';
 
 import './styles.scss';
 
-export const Radio = ({ label, options, onChange }: IRadioProps) => {
+export const Radio = ({
+  label,
+  options,
+  onChange,
+  className,
+}: IRadioProps) => {
   const [selectedValue, setSelectedValue] = useState<null | TRadioOption['id']>(null);
 
   const onRadioSelect = (id: TRadioOption['id']) => {
@@ -21,7 +26,7 @@ export const Radio = ({ label, options, onChange }: IRadioProps) => {
   };
 
   return (
-    <div className='radio'>
+    <div className={`radio ${className || ''}`}>
       <Typography size='sm' weight='semibold'>{label}</Typography>
       <div className='radio--options-container'>
         {options.map((option) => {
