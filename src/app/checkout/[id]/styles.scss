@@ -1,0 +1,21 @@
+.checkout {
+  &--title {
+    margin-bottom: 24px;
+  }
+
+  &--method-input {
+    margin-bottom: 24px;
+  }
+
+  &--amount-container {
+    margin-top: 16px;
+
+    p {
+      margin-bottom: 8px;
+    }
+  }
+
+  &--blank-area {
+    margin-bottom: 100px;
+  }
+}
