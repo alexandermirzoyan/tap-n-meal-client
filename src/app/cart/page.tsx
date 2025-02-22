@@ -20,7 +20,7 @@ const CartPage = () => {
         <Product />
         <Product />
       </div>
-      <Button label='Place an order' className='cart--order-btn' />
+      <Button label='Place an order' className='fixed-action-btn' />
     </>
   );
 };
