@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Typography } from '@/components/Typography';
+import { formatNumber } from '@/utils/formatNumber';
 
 import { IProductCardProps } from './types';
 
@@ -35,7 +36,7 @@ export const ProductCard = ({
     </div>
     <div className='product-card--price-info'>
       <Typography size='xs' weight='semibold' className='product-card--price'>
-        {`${price} ֏`}
+        {`${formatNumber(price)} ֏`}
       </Typography>
       <button className='product-card--cart-btn'>
         <CartIcon />

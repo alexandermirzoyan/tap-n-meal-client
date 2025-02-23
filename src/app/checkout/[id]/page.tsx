@@ -7,6 +7,7 @@ import { Typography } from '@/components/Typography';
 import { Radio } from '@/components/Radio';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/Button';
+import { formatNumber } from '@/utils/formatNumber';
 
 import './styles.scss';
 
@@ -17,8 +18,8 @@ const PAYMENT_METHODS = [
 
 const TIP_OPTIONS = [
   { id: '1', name: 'No' },
-  { id: '2', name: '500 ֏' },
-  { id: '3', name: '1000 ֏' },
+  { id: '2', name: `${formatNumber(500)} ֏` },
+  { id: '3', name: `${formatNumber(1000)} ֏` },
   { id: 'other', name: 'Other amount' },
 ];
 

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Typography } from '@/components/Typography';
 import { QuantitySelector } from '@/components/QuantitySelector';
 import { getImageSrc } from '@/utils/getImageSrc';
+import { formatNumber } from '@/utils/formatNumber';
 
 import TrashIcon from '../../../../../public/icons/trash.svg';
 
@@ -23,7 +24,7 @@ export const Product = () => {
             <TrashIcon />
           </button>
         </div>
-        <Typography size='md' weight='semibold' className='product-cart--price'>{`${30} ֏`}</Typography>
+        <Typography size='md' weight='semibold' className='product-cart--price'>{`${formatNumber(30)} ֏`}</Typography>
         <QuantitySelector max={10} />
       </div>
     </div>
