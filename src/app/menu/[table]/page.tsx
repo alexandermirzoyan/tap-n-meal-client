@@ -24,16 +24,18 @@ const MenuPage = async ({ params }: IPageProps) => {
 
   return (
     <>
-      <header className='header--container'>
-        <LogoIcon />
-        <div className='header--actions'>
-          <CartButton total={0} />
-          <LanguageSwitcher />
-        </div>
-      </header>
-      <Input placeholder='Search' prefix={<SearchIcon />} />
+      <div className='menu--header-container'>
+        <header className='header--container'>
+          <LogoIcon />
+          <div className='header--actions'>
+            <CartButton total={0} />
+            <LanguageSwitcher />
+          </div>
+        </header>
+        <Input placeholder='Search' prefix={<SearchIcon />} />
+        <Categories data={categories} />
+      </div>
 
-      <Categories data={categories} />
       <Products data={products} />
 
       <Typography>{`Menu for table ${table}`}</Typography>
