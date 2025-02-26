@@ -1,21 +1,79 @@
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+
 import { ProductCard } from '@/components/ProductCard';
 import { getImageSrc } from '@/utils/getImageSrc';
+import { request } from '@/service/request';
 
-import { IProductsProps } from './types';
+import { TProduct } from './types';
 
 import './styles.scss';
 
-export const Products = ({ data }: IProductsProps) => (
-  <div className='products--container'>
-    {data.map((product) => (
-      <ProductCard
-        id={product.id}
-        key={product.id}
-        title={product.name}
-        available={product.quantity}
-        price={product.price}
-        imageSrc={getImageSrc(product.image.path)}
-      />
-    ))}
-  </div>
-);
+const PRODUCTS_PER_PAGE = 10;
+
+export const Products = () => {
+  const observerRef = useRef(null);
+
+  const searchParams = useSearchParams();
+  const categoryId = searchParams.get('category');
+
+  const [page, setPage] = useState(1);
+  const [hasMorePages, setHasMorePages] = useState(true);
+  const [products, setProducts] = useState<TProduct[]>([]);
+
+  const fetchProducts = async () => {
+    const data = await request({ url: `/products?page=${page}&category=${categoryId}` });
+    setProducts((prevProducts) => [...prevProducts, ...data]);
+    setHasMorePages(data.length >= PRODUCTS_PER_PAGE);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const isEndReached = entries[0].isIntersecting;
+        if (isEndReached) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      },
+      { threshold: 1.0 },
+    );
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    setPage(1);
+    setProducts([]);
+    setHasMorePages(true);
+  }, [categoryId]);
+
+  useEffect(() => {
+    if (hasMorePages) {
+      fetchProducts();
+    }
+  }, [page, categoryId, hasMorePages]);
+
+  return (
+    <>
+      <div className='products--container'>
+        {products.map((product) => (
+          <ProductCard
+            id={product.id}
+            key={product.id}
+            title={product.name}
+            available={product.quantity}
+            price={product.price}
+            imageSrc={getImageSrc(product.image.path)}
+          />
+        ))}
+      </div>
+      <div ref={observerRef} style={{ height: '20px' }} />
+    </>
+  );
+};

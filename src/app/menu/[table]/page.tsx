@@ -1,6 +1,5 @@
 import { request } from '@/service/request';
 
-import { Typography } from '@/components/Typography';
 import { CartButton } from '@/components/CartButton';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { Input } from '@/components/Input';
@@ -20,7 +19,7 @@ interface IPageProps {
 const MenuPage = async ({ params }: IPageProps) => {
   const table = (await params).table;
   const categories = await request({ url: '/categories' });
-  const products = await request({ url: '/products?page=1' });
+  console.log(`Menu for table ${table}`);
 
   return (
     <>
@@ -36,9 +35,7 @@ const MenuPage = async ({ params }: IPageProps) => {
         <Categories data={categories} />
       </div>
 
-      <Products data={products} />
-
-      <Typography>{`Menu for table ${table}`}</Typography>
+      <Products />
     </>
   );
 };

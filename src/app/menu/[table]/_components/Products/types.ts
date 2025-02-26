@@ -1,4 +1,4 @@
-type TProduct = {
+export type TProduct = {
   id: number;
   name: string;
   price: number;
@@ -8,6 +8,4 @@ type TProduct = {
   };
 };
 
-export interface IProductsProps {
-  data: Array<TProduct>;
-}
+export interface IProductsProps {}
