@@ -9,6 +9,7 @@ import { Button } from '@/components/Button';
 import { QuantitySelector } from '@/components/QuantitySelector';
 
 import { getImageSrc } from '@/utils/getImageSrc';
+import { formatNumber } from '@/utils/formatNumber';
 
 import CartIcon from '../../../../public/icons/cart.svg';
 
@@ -39,7 +40,7 @@ const ProductPage = async ({ params }: IPageProps) => {
       <div className='product--info-container'>
         <Typography size='md' weight='semibold'>{product.name}</Typography>
         <Typography size='xs' className='product--available-count'>{`Available: ${product.quantity}`}</Typography>
-        <Typography size='xl' weight='semibold' className='product--price'>{`${product.price} ֏`}</Typography>
+        <Typography size='xl' weight='semibold' className='product--price'>{`${formatNumber(product.price)} ֏`}</Typography>
         <Typography size='xs' weight='medium'>Description</Typography>
         <Typography size='xs' className='product--description'>{product.description}</Typography>
 
