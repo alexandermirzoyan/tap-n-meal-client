@@ -1,5 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { CartProvider } from '@/context/Cart';
+
 import '../styles/index.scss';
 
 export const metadata: Metadata = {
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => (
   <html lang='en'>
     <body>
-      {children}
+      <CartProvider>
+        {children}
+      </CartProvider>
     </body>
   </html>
 );
