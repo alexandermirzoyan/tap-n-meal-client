@@ -54,9 +54,11 @@ export const Products = () => {
   }, [categoryId]);
 
   useEffect(() => {
-    if (hasMorePages) {
-      fetchProducts();
+    if (!categoryId || !hasMorePages) {
+      return;
     }
+
+    fetchProducts();
   }, [page, categoryId, hasMorePages]);
 
   return (
