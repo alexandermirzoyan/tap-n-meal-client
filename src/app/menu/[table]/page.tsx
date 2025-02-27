@@ -27,7 +27,7 @@ const MenuPage = async ({ params }: IPageProps) => {
         <header className='header--container'>
           <LogoIcon />
           <div className='header--actions'>
-            <CartButton total={0} />
+            <CartButton />
             <LanguageSwitcher />
           </div>
         </header>

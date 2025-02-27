@@ -1,3 +1,1 @@
-export interface ICartButtonProps {
-  total: number;
-}
+export interface ICartButtonProps {}

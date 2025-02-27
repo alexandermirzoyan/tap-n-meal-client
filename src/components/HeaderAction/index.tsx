@@ -10,7 +10,7 @@ export const HeaderAction = ({ tableId }: IHeaderActionProps) => (
   <div className='header-action--container'>
     <BackButton to={`/menu/${tableId}`} />
     <div className='header-action--right-side'>
-      <CartButton total={0} />
+      <CartButton />
       <LanguageSwitcher />
     </div>
   </div>
