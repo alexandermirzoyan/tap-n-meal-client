@@ -40,18 +40,15 @@ const Home = () => {
       </div>
 
       <div style={{ display: 'inline-block', backgroundColor: '#2C2C2C', padding: 20 }}>
-        <ProductCard title='Veggie tomato mix' available={1} price={30} />
-        <ProductCard title='Veggie tomato mix' available={1} price={30} isVeggie />
-        <ProductCard title='Turur' available={30} price={100} />
+        <ProductCard id={1} imageSrc='' title='Veggie tomato mix' available={1} price={30} />
+        <ProductCard id={2} imageSrc='' title='Veggie tomato mix' available={1} price={30} isVeggie />
+        <ProductCard id={3} imageSrc='' title='Turur' available={30} price={100} />
       </div>
 
       <BackButton to='/' />
       <br />
-      <CartButton total={0} />
+      <CartButton />
       <br />
-      <CartButton total={2} />
-      <br />
-      <CartButton total={10} />
 
       <LanguageSwitcher />
 
