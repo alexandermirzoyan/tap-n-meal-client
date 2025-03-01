@@ -28,7 +28,7 @@ export const Products = () => {
             <TrashIcon />
           </button>
         </div>
-        <Typography size='md' weight='semibold' className='product-cart--price'>{`${formatNumber(30)} ֏`}</Typography>
+        <Typography size='md' weight='semibold' className='product-cart--price'>{`${formatNumber(product.price)} ֏`}</Typography>
         <QuantitySelector defaultQuantity={product.count} max={product.quantity} />
       </div>
     </div>
