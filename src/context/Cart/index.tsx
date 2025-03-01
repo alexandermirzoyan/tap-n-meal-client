@@ -7,15 +7,28 @@ import {
   useState,
 } from 'react';
 
-import { ICartContext } from './types';
+import { ICartContext, ICartProduct } from './types';
 
-export const CartContext = createContext<ICartContext>({ count: 0, products: [] });
+export const CartContext = createContext<ICartContext>({ count: 0, products: [], addProduct: () => {} });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ICartProduct[]>([]);
   const count = products.length;
 
-  const contextValue = useMemo(() => ({ count, products, setProducts }), [products]);
+  const insertProduct = (newProduct: ICartProduct) => {
+    const productsCopy = [...products];
+    const productIndex = products.findIndex((product) => product.id === newProduct.id);
+
+    if (productIndex >= 0) {
+      productsCopy[productIndex] = newProduct;
+    } else {
+      productsCopy.push(newProduct);
+    }
+
+    setProducts(productsCopy);
+  };
+
+  const contextValue = useMemo(() => ({ count, products, addProduct: insertProduct }), [products]);
 
   return (
     <CartContext value={contextValue}>
