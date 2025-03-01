@@ -7,7 +7,7 @@ import { ProductCard } from '@/components/ProductCard';
 import { getImageSrc } from '@/utils/getImageSrc';
 import { request } from '@/service/request';
 
-import { TProduct } from './types';
+import { IProduct } from './types';
 
 import './styles.scss';
 
@@ -21,7 +21,7 @@ export const Products = () => {
 
   const [page, setPage] = useState(1);
   const [hasMorePages, setHasMorePages] = useState(true);
-  const [products, setProducts] = useState<TProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   const fetchProducts = async () => {
     const data = await request({ url: `/products?page=${page}&category=${categoryId}` });

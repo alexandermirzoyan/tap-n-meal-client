@@ -1,4 +1,4 @@
-export type TProduct = {
+export interface IProduct {
   id: number;
   name: string;
   price: number;
@@ -6,6 +6,6 @@ export type TProduct = {
   image: {
     path: string;
   };
-};
+}
 
 export interface IProductsProps {}
