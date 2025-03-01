@@ -5,6 +5,7 @@ import {
   createContext,
   useMemo,
   useState,
+  useEffect,
 } from 'react';
 
 import { ICartContext, ICartProduct } from './types';
@@ -46,6 +47,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     addProduct: insertProduct,
     removeProduct,
   }), [products]);
+
+  useEffect(() => {
+    const sessionProducts = sessionStorage.getItem('products');
+    const productsInStorage = sessionProducts ? JSON.parse(sessionProducts) : null;
+
+    if (!productsInStorage) {
+      return;
+    }
+
+    setProducts(productsInStorage);
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
 
   return (
     <CartContext value={contextValue}>
