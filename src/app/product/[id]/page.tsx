@@ -5,13 +5,11 @@ import { request } from '@/service/request';
 import { Typography } from '@/components/Typography';
 import { BackButton } from '@/components/BackButton';
 import { TextArea } from '@/components/TextArea';
-import { Button } from '@/components/Button';
-import { QuantitySelector } from '@/components/QuantitySelector';
 
 import { getImageSrc } from '@/utils/getImageSrc';
 import { formatNumber } from '@/utils/formatNumber';
 
-import CartIcon from '../../../../public/icons/cart.svg';
+import { AddToCart } from './_components/AddToCart';
 
 import './styles.scss';
 
@@ -46,10 +44,7 @@ const ProductPage = async ({ params }: IPageProps) => {
 
         <TextArea label='Write a comment' placeholder='Your comment to this order' />
 
-        <div className='product--actions-container'>
-          <QuantitySelector max={product.quantity} />
-          <Button label='Add to Card' prefix={<CartIcon />} />
-        </div>
+        <AddToCart max={product.quantity} product={product} />
       </div>
       <div className='product--empty-container' />
     </div>
