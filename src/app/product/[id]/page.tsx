@@ -4,7 +4,6 @@ import { request } from '@/service/request';
 
 import { Typography } from '@/components/Typography';
 import { BackButton } from '@/components/BackButton';
-import { TextArea } from '@/components/TextArea';
 
 import { getImageSrc } from '@/utils/getImageSrc';
 import { formatNumber } from '@/utils/formatNumber';
@@ -41,8 +40,6 @@ const ProductPage = async ({ params }: IPageProps) => {
         <Typography size='xl' weight='semibold' className='product--price'>{`${formatNumber(product.price)} ֏`}</Typography>
         <Typography size='xs' weight='medium'>Description</Typography>
         <Typography size='xs' className='product--description'>{product.description}</Typography>
-
-        <TextArea label='Write a comment' placeholder='Your comment to this order' />
 
         <AddToCart max={product.quantity} product={product} />
       </div>
