@@ -1,5 +1,5 @@
 export interface IQuantitySelectorProps {
-  currentQuantity?: number;
+  defaultQuantity?: number;
   max: number;
   onChange?: (_: number) => void;
 }

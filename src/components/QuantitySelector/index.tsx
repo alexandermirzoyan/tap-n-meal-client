@@ -10,9 +10,9 @@ import PlusIcon from '../../../public/icons/plus.svg';
 
 import './styles.scss';
 
-export const QuantitySelector = ({ max, onChange }: IQuantitySelectorProps) => {
+export const QuantitySelector = ({ max, onChange, defaultQuantity }: IQuantitySelectorProps) => {
   const min = 1;
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(defaultQuantity || 1);
 
   const onChangeClick = (type: 'plus' | 'minus') => {
     if (type === 'minus' && count > min) {
