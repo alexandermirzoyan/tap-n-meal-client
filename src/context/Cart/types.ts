@@ -8,4 +8,5 @@ export interface ICartContext {
   count: number;
   products: Array<ICartProduct>;
   addProduct: (_: ICartProduct) => void;
+  removeProduct: (_: number) => void;
 }
