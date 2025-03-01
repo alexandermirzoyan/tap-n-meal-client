@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Typography } from '@/components/Typography';
 
 import { IQuantitySelectorProps } from './types';
@@ -10,7 +10,7 @@ import PlusIcon from '../../../public/icons/plus.svg';
 
 import './styles.scss';
 
-export const QuantitySelector = ({ max }: IQuantitySelectorProps) => {
+export const QuantitySelector = ({ max, onChange }: IQuantitySelectorProps) => {
   const min = 1;
   const [count, setCount] = useState(1);
 
@@ -24,6 +24,10 @@ export const QuantitySelector = ({ max }: IQuantitySelectorProps) => {
       setCount(count + 1);
     }
   };
+
+  useEffect(() => {
+    onChange?.(count);
+  }, [count]);
 
   return (
     <div className='quantity-selector'>
