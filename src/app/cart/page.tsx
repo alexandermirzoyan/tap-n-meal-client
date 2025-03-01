@@ -1,7 +1,7 @@
 import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/Button';
-import { Product } from './_components/Product';
+import { Products } from './_components/Products';
 
 import './styles.scss';
 
@@ -13,12 +13,7 @@ const CartPage = () => {
       <HeaderAction tableId={tableId} />
       <Typography size='xl' weight='semibold' className='cart--title'>My Cart</Typography>
       <div className='cart--items'>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        <Products />
       </div>
       <Button label='Place an order' className='fixed-action-btn' />
     </>
