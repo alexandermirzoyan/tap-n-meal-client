@@ -1,7 +1,7 @@
 import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
-import { Button } from '@/components/Button';
 import { Products } from './_components/Products';
+import { OrderButton } from './_components/OrderButton';
 
 import './styles.scss';
 
@@ -15,7 +15,7 @@ const CartPage = () => {
       <div className='cart--items'>
         <Products />
       </div>
-      <Button label='Place an order' className='fixed-action-btn' />
+      <OrderButton />
     </>
   );
 };
