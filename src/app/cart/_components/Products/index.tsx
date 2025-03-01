@@ -14,7 +14,7 @@ import TrashIcon from '../../../../../public/icons/trash.svg';
 import './styles.scss';
 
 export const Products = () => {
-  const { products } = use(CartContext);
+  const { products, removeProduct } = use(CartContext);
 
   return products.map((product) => (
     <div key={product.id} className='product-cart--container'>
@@ -24,7 +24,7 @@ export const Products = () => {
       <div className='product-cart--info-container'>
         <div className='product-cart--title-container'>
           <Typography size='xs' weight='semibold' className='product-cart--title'>{product.name}</Typography>
-          <button className='product-cart--remove-btn'>
+          <button onClick={() => removeProduct(product.id)} className='product-cart--remove-btn'>
             <TrashIcon />
           </button>
         </div>
