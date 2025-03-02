@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 import { ProductCard } from '@/components/ProductCard';
-import { getImageSrc } from '@/utils/getImageSrc';
 import { request } from '@/service/request';
 
 import { IProduct } from './types';
@@ -71,7 +70,7 @@ export const Products = () => {
             title={product.name}
             available={product.quantity}
             price={product.price}
-            imageSrc={getImageSrc(product.image.path)}
+            imagePath={product.image.path}
           />
         ))}
       </div>

@@ -40,9 +40,9 @@ const Home = () => {
       </div>
 
       <div style={{ display: 'inline-block', backgroundColor: '#2C2C2C', padding: 20 }}>
-        <ProductCard id={1} imageSrc='' title='Veggie tomato mix' available={1} price={30} />
-        <ProductCard id={2} imageSrc='' title='Veggie tomato mix' available={1} price={30} isVeggie />
-        <ProductCard id={3} imageSrc='' title='Turur' available={30} price={100} />
+        <ProductCard id={1} imagePath='' title='Veggie tomato mix' available={1} price={30} />
+        <ProductCard id={2} imagePath='' title='Veggie tomato mix' available={1} price={30} isVeggie />
+        <ProductCard id={3} imagePath='' title='Turur' available={30} price={100} />
       </div>
 
       <BackButton to='/' />
