@@ -1,0 +1,31 @@
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.card-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+}
+
+.pay-button {
+  background-color: var(--main-color);
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pay-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
