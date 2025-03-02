@@ -1,8 +1,13 @@
+'use client';
+
+import { use, MouseEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Typography } from '@/components/Typography';
 import { formatNumber } from '@/utils/formatNumber';
+import { CartContext } from '@/context/Cart';
+import { getImageSrc } from '@/utils/getImageSrc';
 
 import { IProductCardProps } from './types';
 
@@ -15,32 +20,49 @@ export const ProductCard = ({
   id,
   title,
   available,
-  imageSrc,
+  imagePath,
   price,
   isVeggie,
-}: IProductCardProps) => (
-  <Link href={`/product/${id}`} className='product-card'>
-    {
-      isVeggie ? (
-        <div className='product-card--type'>
-          <VeggieIcon />
-        </div>
-      ) : null
-    }
-    <Image src={imageSrc} width={128} height={128} className='product-card--image' alt='Product' />
-    <div className='product-card--info'>
-      <Typography size='xs' weight='semibold'>{title}</Typography>
-      <Typography size='xxs' className='product-card--available'>
-        {`Available: ${available}`}
-      </Typography>
-    </div>
-    <div className='product-card--price-info'>
-      <Typography size='xs' weight='semibold' className='product-card--price'>
-        {`${formatNumber(price)} ֏`}
-      </Typography>
-      <button className='product-card--cart-btn'>
-        <CartIcon />
-      </button>
-    </div>
-  </Link>
-);
+}: IProductCardProps) => {
+  const { addProduct } = use(CartContext);
+
+  const onAddToCartClick = (evt: MouseEvent) => {
+    evt.preventDefault();
+    addProduct({
+      id,
+      name: title,
+      price,
+      quantity: available,
+      image: { path: imagePath },
+      count: 1,
+      comment: '',
+    });
+  };
+
+  return (
+    <Link href={`/product/${id}`} className='product-card'>
+      {
+        isVeggie ? (
+          <div className='product-card--type'>
+            <VeggieIcon />
+          </div>
+        ) : null
+      }
+      <Image src={getImageSrc(imagePath)} width={128} height={128} className='product-card--image' alt='Product' />
+      <div className='product-card--info'>
+        <Typography size='xs' weight='semibold'>{title}</Typography>
+        <Typography size='xxs' className='product-card--available'>
+          {`Available: ${available}`}
+        </Typography>
+      </div>
+      <div className='product-card--price-info'>
+        <Typography size='xs' weight='semibold' className='product-card--price'>
+          {`${formatNumber(price)} ֏`}
+        </Typography>
+        <button onClick={onAddToCartClick} className='product-card--cart-btn'>
+          <CartIcon />
+        </button>
+      </div>
+    </Link>
+  );
+};
