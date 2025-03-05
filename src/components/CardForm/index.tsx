@@ -1,7 +1,6 @@
 'use client';
 
-import React, { use, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   Elements,
@@ -10,8 +9,7 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 
-import { request } from '@/service/request';
-import { CartContext } from '@/context/Cart';
+import { useOrder } from '@/hooks/useOrder';
 
 import './styles.scss';
 
@@ -27,13 +25,11 @@ const cardStyle = {
 };
 
 const CardInput = () => {
-  const tableId = 12;
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
 
+  const { createOrder } = useOrder();
   const [loading, setLoading] = useState(false);
-  const { products } = use(CartContext);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -45,21 +41,8 @@ const CardInput = () => {
     const cardElement = elements.getElement(CardElement);
     console.log('Card Info:', cardElement);
 
-    const orderProducts = products.map((product) => ({ id: product.id, quantity: product.count, comment: product.comment }));
-    const response = await request({
-      url: '/orders',
-      method: 'POST',
-      body: {
-        table: tableId,
-        paymentMethod: 'card',
-        products: orderProducts,
-      },
-    });
-
-    if (response.success) {
-      setLoading(false);
-      router.push(`/menu/${tableId}?success`);
-    }
+    await createOrder('card');
+    setLoading(false);
   };
 
   return (

@@ -1,14 +1,13 @@
 'use client';
 
-import { use, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
 import { Radio } from '@/components/Radio';
 import { Button } from '@/components/Button';
-import { request } from '@/service/request';
-import { CartContext } from '@/context/Cart';
+import { useOrder } from '@/hooks/useOrder';
 
 import './styles.scss';
 
@@ -20,8 +19,8 @@ const PAYMENT_METHODS = [
 const CheckoutPage = () => {
   const tableId = 12;
   const router = useRouter();
-  const { products } = use(CartContext);
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
+  const { createOrder } = useOrder();
 
   const onCheckoutClick = async () => {
     if (selectedMethod === 'card') {
@@ -29,20 +28,7 @@ const CheckoutPage = () => {
       return;
     }
 
-    const orderProducts = products.map((product) => ({ id: product.id, quantity: product.count, comment: product.comment }));
-    const response = await request({
-      url: '/orders',
-      method: 'POST',
-      body: {
-        table: tableId,
-        paymentMethod: 'cash',
-        products: orderProducts,
-      },
-    });
-
-    if (response.success) {
-      router.push(`/menu/${tableId}?success`);
-    }
+    await createOrder('cash');
   };
 
   return (
