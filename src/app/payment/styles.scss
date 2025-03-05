@@ -1,0 +1,12 @@
+.payment {
+  &--top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  &--empty-element {
+    width: 44px; // Same width as <BackButton /> component's height to simulate center alignment of title
+  }
+}
