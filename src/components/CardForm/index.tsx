@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   Elements,
@@ -8,6 +9,9 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+
+import { request } from '@/service/request';
+import { CartContext } from '@/context/Cart';
 
 import './styles.scss';
 
@@ -23,9 +27,13 @@ const cardStyle = {
 };
 
 const CardInput = () => {
+  const tableId = 12;
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
+  const { products } = use(CartContext);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -37,7 +45,21 @@ const CardInput = () => {
     const cardElement = elements.getElement(CardElement);
     console.log('Card Info:', cardElement);
 
-    setLoading(false);
+    const orderProducts = products.map((product) => ({ id: product.id, quantity: product.count, comment: product.comment }));
+    const response = await request({
+      url: '/orders',
+      method: 'POST',
+      body: {
+        table: tableId,
+        paymentMethod: 'cash',
+        products: orderProducts,
+      },
+    });
+
+    if (response.success) {
+      setLoading(false);
+      router.push(`/menu/${tableId}?success`);
+    }
   };
 
   return (
@@ -46,7 +68,7 @@ const CardInput = () => {
         <CardElement options={{ style: cardStyle }} />
       </div>
       <button type='submit' disabled={loading} className='pay-button'>
-        {loading ? 'Processing...' : 'Submit'}
+        {loading ? 'Processing...' : 'Pay'}
       </button>
     </form>
   );
