@@ -51,7 +51,7 @@ const CardInput = () => {
       method: 'POST',
       body: {
         table: tableId,
-        paymentMethod: 'cash',
+        paymentMethod: 'card',
         products: orderProducts,
       },
     });
