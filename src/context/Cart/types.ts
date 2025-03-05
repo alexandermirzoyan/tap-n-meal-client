@@ -10,4 +10,5 @@ export interface ICartContext {
   products: Array<ICartProduct>;
   addProduct: (_: ICartProduct) => void;
   removeProduct: (_: number) => void;
+  clearProducts: () => void;
 }

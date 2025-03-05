@@ -15,6 +15,7 @@ export const CartContext = createContext<ICartContext>({
   products: [],
   addProduct: () => {},
   removeProduct: () => {},
+  clearProducts: () => {},
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -41,11 +42,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setProducts(productsCopy);
   };
 
+  const clearProducts = () => {
+    setProducts([]);
+  };
+
   const contextValue = useMemo(() => ({
     count,
     products,
     addProduct: insertProduct,
     removeProduct,
+    clearProducts,
   }), [products]);
 
   useEffect(() => {
