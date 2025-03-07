@@ -1,10 +1,10 @@
 'use client';
 
 import { use } from 'react';
-import Link from 'next/link';
 
 import { Button } from '@/components/Button';
 import { CartContext } from '@/context/Cart';
+import { Link } from '@/i18n/navigation';
 
 export const OrderButton = () => {
   const tableId = 12;

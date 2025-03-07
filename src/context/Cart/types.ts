@@ -1,4 +1,4 @@
-import { IProduct } from '@/app/menu/[table]/_components/Products/types';
+import { IProduct } from '@/app/[locale]/menu/[table]/_components/Products/types';
 
 export interface ICartProduct extends IProduct {
   count: number;

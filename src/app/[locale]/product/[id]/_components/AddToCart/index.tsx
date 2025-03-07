@@ -9,7 +9,7 @@ import { CartContext } from '@/context/Cart';
 
 import { IAddToCartProps } from './types';
 
-import CartIcon from '../../../../../../public/icons/cart.svg';
+import CartIcon from '../../../../../../../public/icons/cart.svg';
 
 export const AddToCart = ({ max, product }: IAddToCartProps) => {
   const { addProduct } = use(CartContext);

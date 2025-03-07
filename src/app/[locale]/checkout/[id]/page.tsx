@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
 import { Radio } from '@/components/Radio';
 import { Button } from '@/components/Button';
 import { useOrder } from '@/hooks/useOrder';
+import { useRouter } from '@/i18n/navigation';
 
 import './styles.scss';
 

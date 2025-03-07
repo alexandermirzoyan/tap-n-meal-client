@@ -14,8 +14,8 @@ import { TextArea } from '@/components/TextArea';
 import { CartButton } from '@/components/CartButton';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
-import CartIcon from '../../../public/icons/cart.svg';
-import MagnifierIcon from '../../../public/icons/magnifier.svg';
+import CartIcon from '../../../../public/icons/cart.svg';
+import MagnifierIcon from '../../../../public/icons/magnifier.svg';
 
 const Home = () => {
   const [isModalOpen, setModalOpen] = useState(false);

@@ -1,10 +1,10 @@
 'use client';
 
 import { use } from 'react';
-import Link from 'next/link';
 
 import { CartContext } from '@/context/Cart';
 import { Typography } from '@/components/Typography';
+import { Link } from '@/i18n/navigation';
 
 import CartIcon from '../../../public/icons/cart.svg';
 

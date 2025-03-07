@@ -2,12 +2,12 @@
 
 import { use, MouseEvent } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { Typography } from '@/components/Typography';
 import { formatNumber } from '@/utils/formatNumber';
 import { CartContext } from '@/context/Cart';
 import { getImageSrc } from '@/utils/getImageSrc';
+import { Link } from '@/i18n/navigation';
 
 import { IProductCardProps } from './types';
 

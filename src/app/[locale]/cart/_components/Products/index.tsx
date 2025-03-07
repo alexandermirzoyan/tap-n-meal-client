@@ -9,7 +9,7 @@ import { QuantitySelector } from '@/components/QuantitySelector';
 import { getImageSrc } from '@/utils/getImageSrc';
 import { formatNumber } from '@/utils/formatNumber';
 
-import TrashIcon from '../../../../../public/icons/trash.svg';
+import TrashIcon from '../../../../../../public/icons/trash.svg';
 
 import './styles.scss';
 

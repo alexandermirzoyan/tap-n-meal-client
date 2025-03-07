@@ -1,7 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from '@/i18n/navigation';
 import { Modal } from '@/components/Modal';
 
 import { ISuccessModalProps } from './types';
@@ -15,7 +14,7 @@ export const SuccessModal = ({ open }: ISuccessModalProps) => {
   }
 
   const onModalClose = () => {
-    router.push(`/menu/${tableId}`);
+    router.push(`menu/${tableId}`);
   };
 
   return (

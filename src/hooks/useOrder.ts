@@ -1,8 +1,8 @@
 import { use } from 'react';
-import { useRouter } from 'next/navigation';
 
 import { request } from '@/service/request';
 import { CartContext } from '@/context/Cart';
+import { useRouter } from '@/i18n/navigation';
 
 export const useOrder = () => {
   const tableId = 12;
