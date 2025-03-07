@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 import { Typography } from '@/components/Typography';
 import { APP_LANGUAGE } from '@/constants/appLanguage';
@@ -21,7 +22,11 @@ const LANGUAGES = [
 
 export const LanguageSwitcher = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [selectedLanguageId, setSelectedLanguageId] = useState(APP_LANGUAGE);
+  const { locale } = useParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const selectedLanguageId = locale || APP_LANGUAGE;
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownIconClassName = isDropdownOpen ? 'open' : 'close';
   const selectedLanguage = LANGUAGES.find((lang) => lang.id === selectedLanguageId);
@@ -29,8 +34,8 @@ export const LanguageSwitcher = () => {
   useOutsideClick(ref, () => setDropdownOpen(false));
 
   const onLanguageSelect = (id: string) => {
-    setSelectedLanguageId(id);
-    setDropdownOpen(false);
+    const newPath = `/${id}${pathname.replace(/^\/[a-z]{2}/, '')}`;
+    router.push(newPath);
   };
 
   return (
