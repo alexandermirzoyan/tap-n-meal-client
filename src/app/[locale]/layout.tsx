@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 
 interface ILayoutProps {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{locale: 'en' | 'hy' | 'ru'}>;
 }
 
 const LocaleLayout = async ({ children, params }: ILayoutProps) => {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
 
