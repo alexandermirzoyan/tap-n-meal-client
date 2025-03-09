@@ -7,7 +7,7 @@ import { routing } from '@/i18n/routing';
 
 import { CartProvider } from '@/context/Cart';
 
-import '../../styles/index.scss';
+import '@/styles/index.scss';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
