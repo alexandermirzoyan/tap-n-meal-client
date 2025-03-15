@@ -1,3 +1,27 @@
 {
-  "hello": "Hello World"
+  "processing": "Processing...",
+  "pay": "Pay",
+  "great": "Great",
+  "ok": "OK",
+  "available": "Available",
+  "order": {
+    "success": {
+      "title": "Thank you for your order",
+      "info": "Your order was successfully done"
+    }
+  },
+  "search": "Search",
+  "placeOrder": "Place an order",
+  "myCart": "My Cart",
+  "creditCard": "Credit Card",
+  "cash": "Cash",
+  "checkout": "Checkout",
+  "paymentMethod": "Payment Method",
+  "payByCard": "Pay by Card",
+  "commentTextArea": {
+    "label": "Write a comment",
+    "placeholder": "Your comment to this order"
+  },
+  "addToCart": "Add to Cart",
+  "description": "Description"
 }

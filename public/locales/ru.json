@@ -1,3 +1,27 @@
 {
-  "hello": "[RU] Hello World"
+  "processing": "Обработка...",
+  "pay": "Оплатить",
+  "great": "Отлично",
+  "ok": "ОК",
+  "available": "Доступно",
+  "order": {
+    "success": {
+      "title": "Спасибо за ваш заказ",
+      "info": "Ваш заказ успешно оформлен"
+    }
+  },
+  "search": "Поиск",
+  "placeOrder": "Оформить заказ",
+  "myCart": "Моя корзина",
+  "creditCard": "Кредитная карта",
+  "cash": "Наличные",
+  "checkout": "Оформление заказа",
+  "paymentMethod": "Способ оплаты",
+  "payByCard": "Оплатить картой",
+  "commentTextArea": {
+    "label": "Напишите комментарий",
+    "placeholder": "Ваш комментарий к этому заказу"
+  },
+  "addToCart": "Добавить",
+  "description": "Описание"
 }
