@@ -1,6 +1,7 @@
 'use client';
 
 import { use, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { QuantitySelector } from '@/components/QuantitySelector';
 import { Button } from '@/components/Button';
@@ -15,6 +16,7 @@ export const AddToCart = ({ max, product }: IAddToCartProps) => {
   const { addProduct } = use(CartContext);
   const [comment, setComment] = useState('');
   const [quantity, setQuantity] = useState(0);
+  const t = useTranslations();
 
   const onAddToCartClick = () => {
     addProduct({ ...product, count: quantity, comment });
@@ -22,10 +24,10 @@ export const AddToCart = ({ max, product }: IAddToCartProps) => {
 
   return (
     <>
-      <TextArea label='Write a comment' placeholder='Your comment to this order' onChange={(evt) => setComment(evt.target.value)} />
+      <TextArea label={t('commentTextArea.label')} placeholder={t('commentTextArea.placeholder')} onChange={(evt) => setComment(evt.target.value)} />
       <div className='product--actions-container'>
         <QuantitySelector max={max} onChange={(count) => setQuantity(count)} />
-        <Button label='Add to Card' prefix={<CartIcon />} onClick={onAddToCartClick} />
+        <Button label={t('addToCart')} prefix={<CartIcon />} onClick={onAddToCartClick} />
       </div>
     </>
   );

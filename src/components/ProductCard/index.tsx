@@ -2,6 +2,7 @@
 
 import { use, MouseEvent } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { Typography } from '@/components/Typography';
 import { formatNumber } from '@/utils/formatNumber';
@@ -25,6 +26,7 @@ export const ProductCard = ({
   isVeggie,
 }: IProductCardProps) => {
   const { addProduct } = use(CartContext);
+  const t = useTranslations();
 
   const onAddToCartClick = (evt: MouseEvent) => {
     evt.preventDefault();
@@ -52,7 +54,7 @@ export const ProductCard = ({
       <div className='product-card--info'>
         <Typography size='xs' weight='semibold'>{title}</Typography>
         <Typography size='xxs' className='product-card--available'>
-          {`Available: ${available}`}
+          {`${t('available')}: ${available}`}
         </Typography>
       </div>
       <div className='product-card--price-info'>

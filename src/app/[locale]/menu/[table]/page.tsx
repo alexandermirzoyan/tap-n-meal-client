@@ -27,7 +27,6 @@ const MenuPage = async ({ params, searchParams }: IPageProps) => {
   const categories = await request({ url: '/categories' });
 
   console.log(`Menu for table ${table}`);
-  console.log(t('hello'));
 
   return (
     <>
@@ -39,7 +38,7 @@ const MenuPage = async ({ params, searchParams }: IPageProps) => {
             <LanguageSwitcher />
           </div>
         </header>
-        <Input placeholder='Search' prefix={<SearchIcon />} />
+        <Input placeholder={t('search')} prefix={<SearchIcon />} />
         <Categories data={categories} />
       </div>
 

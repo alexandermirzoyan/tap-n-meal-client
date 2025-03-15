@@ -1,6 +1,7 @@
 'use client';
 
 import { createPortal } from 'react-dom';
+import { useTranslations } from 'next-intl';
 
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/Button';
@@ -19,6 +20,8 @@ export const Modal = ({
   info,
   type = 'success',
 }: IModalProps) => {
+  const t = useTranslations();
+
   if (!open) {
     return null;
   }
@@ -37,7 +40,7 @@ export const Modal = ({
           </div>
           <Typography weight='semibold' size='lg'>{title}</Typography>
           <Typography size='xs' className='modal--info'>{info}</Typography>
-          <Button label={type === 'success' ? 'Great' : 'OK'} onClick={onClose} className='w-full' />
+          <Button label={t(type === 'success' ? 'great' : 'ok')} onClick={onClose} className='w-full' />
         </div>
       </div>
     ),

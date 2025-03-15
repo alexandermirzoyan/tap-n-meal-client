@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import { useTranslations } from 'next-intl';
 import {
   Elements,
   CardElement,
@@ -27,6 +28,7 @@ const cardStyle = {
 const CardInput = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const t = useTranslations();
 
   const { createOrder } = useOrder();
   const [loading, setLoading] = useState(false);
@@ -51,7 +53,7 @@ const CardInput = () => {
         <CardElement options={{ style: cardStyle }} />
       </div>
       <button type='submit' disabled={loading} className='pay-button'>
-        {loading ? 'Processing...' : 'Pay'}
+        {t(loading ? 'processing' : 'pay')}
       </button>
     </form>
   );
