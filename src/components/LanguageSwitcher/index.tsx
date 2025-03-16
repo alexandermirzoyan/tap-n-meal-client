@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 
 import { Typography } from '@/components/Typography';
-import { APP_LANGUAGE } from '@/constants/appLanguage';
+import { DEFAULT_LANGUAGE } from '@/constants/languages';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import AMFlagIcon from '../../../public/icons/flags/am.svg';
@@ -26,7 +26,7 @@ export const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const selectedLanguageId = locale || APP_LANGUAGE;
+  const selectedLanguageId = locale || DEFAULT_LANGUAGE;
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownIconClassName = isDropdownOpen ? 'open' : 'close';
   const selectedLanguage = LANGUAGES.find((lang) => lang.id === selectedLanguageId);
