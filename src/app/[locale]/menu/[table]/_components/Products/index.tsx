@@ -17,13 +17,14 @@ export const Products = () => {
 
   const searchParams = useSearchParams();
   const categoryId = searchParams.get('category');
+  const search = searchParams.get('search');
 
   const [page, setPage] = useState(1);
   const [hasMorePages, setHasMorePages] = useState(true);
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const fetchProducts = async () => {
-    const data = await request({ url: `/products?page=${page}&category=${categoryId}` });
+    const data = await request({ url: `/products?page=${page}&category=${categoryId}&search=${search || ''}` });
     setProducts((prevProducts) => [...prevProducts, ...data]);
     setHasMorePages(data.length >= PRODUCTS_PER_PAGE);
   };
@@ -50,7 +51,7 @@ export const Products = () => {
     setPage(1);
     setProducts([]);
     setHasMorePages(true);
-  }, [categoryId]);
+  }, [categoryId, search]);
 
   useEffect(() => {
     if (!categoryId || !hasMorePages) {
