@@ -18,7 +18,11 @@ import './styles.scss';
 
 export const Products = () => {
   const [localizedProducts, setLocalizedProducts] = useState<ICartProduct[]>([]);
-  const { products, removeProduct } = use(CartContext);
+  const { products, removeProduct, changeCount } = use(CartContext);
+
+  const onQuantityChange = (productId: number, newCount: number) => {
+    changeCount(productId, newCount);
+  };
 
   const loadProducts = async () => {
     const language = await getLanguage();
@@ -54,7 +58,7 @@ export const Products = () => {
           </button>
         </div>
         <Typography size='md' weight='semibold' className='product-cart--price'>{`${formatNumber(product.price)} ֏`}</Typography>
-        <QuantitySelector defaultQuantity={product.count} max={product.quantity} />
+        <QuantitySelector onChange={(count) => onQuantityChange(product.id, count)} defaultQuantity={product.count} max={product.quantity} />
       </div>
     </div>
   ));
