@@ -1,0 +1,1 @@
+export const ADD_TO_CART_SUCCESS_STATE_DURATION = 3 * 1000;

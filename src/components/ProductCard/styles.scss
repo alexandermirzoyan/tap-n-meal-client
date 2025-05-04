@@ -67,5 +67,9 @@
     color: #FFFFFF;
     background-color: var(--main-color);
     cursor: pointer;
+
+    &.success {
+      background-color: var(--success-color);
+    }
   }
 }
