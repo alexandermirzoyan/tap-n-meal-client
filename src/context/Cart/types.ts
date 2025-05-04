@@ -9,6 +9,7 @@ export interface ICartContext {
   count: number;
   products: Array<ICartProduct>;
   addProduct: (_: ICartProduct) => void;
+  changeCount: (_id: number, _count: number) => void;
   removeProduct: (_: number) => void;
   clearProducts: () => void;
 }

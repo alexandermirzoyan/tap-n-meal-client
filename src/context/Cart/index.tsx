@@ -16,6 +16,7 @@ export const CartContext = createContext<ICartContext>({
   count: 0,
   products: [],
   addProduct: () => {},
+  changeCount: () => {},
   removeProduct: () => {},
   clearProducts: () => {},
 });
@@ -37,6 +38,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setProducts(productsCopy);
   };
 
+  const changeCount = (productId: number, newCount: number) => {
+    const foundProductIndex = products.findIndex((product) => product.id === productId);
+    const foundProduct = products[foundProductIndex];
+    const copyFoundProduct = { ...foundProduct, count: newCount };
+    const copyProducts = [...products];
+    copyProducts[foundProductIndex] = copyFoundProduct;
+    setProducts(copyProducts);
+  };
+
   const removeProduct = (productId: number) => {
     const productsCopy = [...products];
     const productIndex = products.findIndex((product) => product.id === productId);
@@ -52,6 +62,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     count,
     products,
     addProduct: insertProduct,
+    changeCount,
     removeProduct,
     clearProducts,
   }), [products]);
