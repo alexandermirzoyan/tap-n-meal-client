@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Typography } from '@/components/Typography';
 
 import { IQuantitySelectorProps } from './types';
@@ -17,17 +17,15 @@ export const QuantitySelector = ({ max, onChange, defaultQuantity }: IQuantitySe
   const onChangeClick = (type: 'plus' | 'minus') => {
     if (type === 'minus' && count > min) {
       setCount(count - 1);
+      onChange?.(count - 1);
       return;
     }
 
     if (type === 'plus' && count < max) {
       setCount(count + 1);
+      onChange?.(count + 1);
     }
   };
-
-  useEffect(() => {
-    onChange?.(count);
-  }, [count]);
 
   return (
     <div className='quantity-selector'>
