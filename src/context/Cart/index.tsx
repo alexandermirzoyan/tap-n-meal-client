@@ -8,6 +8,8 @@ import {
   useEffect,
 } from 'react';
 
+import { getSessionStorageItem } from '@/utils/getSessionStorageItem';
+
 import { ICartContext, ICartProduct } from './types';
 
 export const CartContext = createContext<ICartContext>({
@@ -19,7 +21,7 @@ export const CartContext = createContext<ICartContext>({
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<ICartProduct[]>([]);
+  const [products, setProducts] = useState<ICartProduct[]>(getSessionStorageItem('products') || []);
   const count = products.length;
 
   const insertProduct = (newProduct: ICartProduct) => {
@@ -55,8 +57,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }), [products]);
 
   useEffect(() => {
-    const sessionProducts = sessionStorage.getItem('products');
-    const productsInStorage = sessionProducts ? JSON.parse(sessionProducts) : null;
+    const productsInStorage = getSessionStorageItem('products');
 
     if (!productsInStorage) {
       return;
