@@ -62,7 +62,7 @@
     height: 28px;
     border-radius: 50%;
     color: #FFFFFF;
-    background-color: #23A26D;
+    background-color: var(--success-color);
 
     &.error {
       background-color: #DE3235;
