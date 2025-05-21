@@ -12,7 +12,7 @@ import { formatNumber } from '@/utils/formatNumber';
 import { getLanguage } from '@/utils/getLanguage';
 import { request } from '@/service/request';
 
-import TrashIcon from '../../../../../../public/icons/trash.svg';
+import TrashIcon from '../../../../../../../public/icons/trash.svg';
 
 import './styles.scss';
 

@@ -8,12 +8,11 @@ import { OrderButton } from './_components/OrderButton';
 import './styles.scss';
 
 const CartPage = async () => {
-  const tableId = 12;
   const t = await getTranslations();
 
   return (
     <>
-      <HeaderAction tableId={tableId} />
+      <HeaderAction />
       <Typography size='xl' weight='semibold' className='cart--title'>{t('myCart')}</Typography>
       <div className='cart--items'>
         <Products />

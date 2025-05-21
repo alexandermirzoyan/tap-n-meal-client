@@ -11,8 +11,8 @@ import { ADD_TO_CART_SUCCESS_STATE_DURATION } from '@/constants/addToCartSuccess
 
 import { IAddToCartProps } from './types';
 
-import CartIcon from '../../../../../../../public/icons/cart.svg';
-import CheckMarkIcon from '../../../../../../../public/icons/checkmark.svg';
+import CartIcon from '../../../../../../../../public/icons/cart.svg';
+import CheckMarkIcon from '../../../../../../../../public/icons/checkmark.svg';
 
 import './styles.scss';
 

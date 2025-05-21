@@ -2,13 +2,11 @@ import { BackButton } from '@/components/BackButton';
 import { CartButton } from '@/components/CartButton';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
-import { IHeaderActionProps } from './types';
-
 import './styles.scss';
 
-export const HeaderAction = ({ tableId }: IHeaderActionProps) => (
+export const HeaderAction = () => (
   <div className='header-action--container'>
-    <BackButton to={`/menu/${tableId}`} />
+    <BackButton to='/menu' />
     <div className='header-action--right-side'>
       <CartButton />
       <LanguageSwitcher />

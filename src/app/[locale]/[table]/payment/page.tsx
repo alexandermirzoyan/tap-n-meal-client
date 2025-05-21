@@ -6,14 +6,18 @@ import { BackButton } from '@/components/BackButton';
 
 import './styles.scss';
 
-const PaymentPage = async () => {
-  const tableId = 12;
+interface IPageProps {
+  params: Promise<{ table: string }>;
+}
+
+const PaymentPage = async ({ params }: IPageProps) => {
+  const table = (await params).table;
   const t = await getTranslations();
 
   return (
     <>
       <div className='payment--top-container'>
-        <BackButton to={`/menu/${tableId}`} />
+        <BackButton to={`/menu/${table}`} />
         <Typography size='lg' weight='semibold'>{t('payByCard')}</Typography>
         <div className='payment--empty-element' />
       </div>

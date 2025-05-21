@@ -1,3 +1,1 @@
-export interface IHeaderActionProps {
-  tableId: string | number;
-}
+export interface IHeaderActionProps {}

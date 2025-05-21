@@ -18,7 +18,6 @@ interface IPageProps {
 }
 
 const ProductPage = async ({ params }: IPageProps) => {
-  const tableId = 12;
   const id = (await params).id;
   const product = await request({ url: `/products/${id}` });
   const imageSrc = product.image.path;
@@ -28,7 +27,7 @@ const ProductPage = async ({ params }: IPageProps) => {
     <div className='product--page-container'>
       <div className='product--image-container'>
         <div className='product--image-blur' style={{ backgroundImage: `url(${getImageSrc(imageSrc)})` }} />
-        <BackButton to={`/menu/${tableId}`} />
+        <BackButton to='/menu' />
         <Image
           width={220}
           height={220}

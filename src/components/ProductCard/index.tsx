@@ -3,6 +3,7 @@
 import { use, useState, MouseEvent } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 import { Typography } from '@/components/Typography';
 import { formatNumber } from '@/utils/formatNumber';
@@ -30,6 +31,7 @@ export const ProductCard = ({
   const { addProduct } = use(CartContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const t = useTranslations();
+  const { table } = useParams();
 
   const onAddToCartClick = (evt: MouseEvent) => {
     evt.preventDefault();
@@ -51,7 +53,7 @@ export const ProductCard = ({
   };
 
   return (
-    <Link href={`/product/${id}`} className='product-card'>
+    <Link href={`/${table}/product/${id}`} className='product-card'>
       {
         isVeggie ? (
           <div className='product-card--type'>

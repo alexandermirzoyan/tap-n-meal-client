@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 import { HeaderAction } from '@/components/HeaderAction';
 import { Typography } from '@/components/Typography';
@@ -13,11 +14,11 @@ import { useRouter } from '@/i18n/navigation';
 import './styles.scss';
 
 const CheckoutPage = () => {
-  const tableId = 12;
   const router = useRouter();
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
   const { createOrder } = useOrder();
   const t = useTranslations();
+  const { table } = useParams();
 
   const PAYMENT_METHODS = [
     { id: 'card', name: t('creditCard') },
@@ -26,7 +27,7 @@ const CheckoutPage = () => {
 
   const onCheckoutClick = async () => {
     if (selectedMethod === 'card') {
-      router.push('/payment');
+      router.push(`/${table}/payment`);
       return;
     }
 
@@ -35,7 +36,7 @@ const CheckoutPage = () => {
 
   return (
     <>
-      <HeaderAction tableId={tableId} />
+      <HeaderAction />
       <Typography size='xl' weight='semibold' className='checkout--title'>{t('checkout')}</Typography>
       <Radio
         label={t('paymentMethod')}

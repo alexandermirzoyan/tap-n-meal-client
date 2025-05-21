@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
 
 import { useRouter } from '@/i18n/navigation';
 import { Modal } from '@/components/Modal';
@@ -8,16 +9,16 @@ import { Modal } from '@/components/Modal';
 import { ISuccessModalProps } from './types';
 
 export const SuccessModal = ({ open }: ISuccessModalProps) => {
-  const tableId = 12;
   const router = useRouter();
   const t = useTranslations();
+  const { table } = useParams();
 
   if (!open) {
     return null;
   }
 
   const onModalClose = () => {
-    router.push(`menu/${tableId}`);
+    router.push(`/${table}/menu`);
   };
 
   return (
