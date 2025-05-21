@@ -23,5 +23,9 @@
     "placeholder": "Your comment to this order"
   },
   "addToCart": "Add to Cart",
-  "description": "Description"
+  "description": "Description",
+  "head": {
+    "title": "TapNMeal",
+    "description": "Order food from your table in one tap with the TapNMeal app. Scan the QR code, view the menu, and send your order without waiting."
+  }
 }
