@@ -75,7 +75,7 @@ export const ProductCard = ({
         <button
           disabled={isAddedToCart}
           onClick={onAddToCartClick}
-          className={`product-card--cart-btn ${isAddedToCart ? 'success' : ''}`}
+          className={`product-card--cart-btn ${isAddedToCart ? 'success' : 'basic'}`}
         >
           { isAddedToCart ? <CheckMarkIcon /> : <CartIcon /> }
         </button>

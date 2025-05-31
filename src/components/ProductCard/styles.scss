@@ -68,8 +68,20 @@
     background-color: var(--main-color);
     cursor: pointer;
 
+    &.basic {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     &.success {
       background-color: var(--success-color);
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
     }
   }
 }

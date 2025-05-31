@@ -44,7 +44,7 @@ export const LanguageSwitcher = () => {
         <div className='language-switcher--flag-container'>
           {selectedLanguage?.icon}
         </div>
-        <Typography weight='medium' size='xs'>{selectedLanguage?.name}</Typography>
+        <Typography weight='medium' size='xs' className='language-switcher--current-code'>{selectedLanguage?.name}</Typography>
         <div className={`language-switcher--dropdown-icon ${dropdownIconClassName}`}>
           <BackIcon />
         </div>

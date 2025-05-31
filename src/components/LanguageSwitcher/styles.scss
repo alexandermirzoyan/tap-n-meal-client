@@ -12,6 +12,10 @@
     border-radius: 12px;
   }
 
+  &--current-code {
+    color: var(--text-main);
+  }
+
   &--flag-container {
     display: flex;
     align-items: center;

@@ -64,6 +64,13 @@
     color: #FFFFFF;
     background-color: var(--success-color);
 
+    &.success {
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
     &.error {
       background-color: #DE3235;
     }
